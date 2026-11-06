@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+int positivenumber(int arr[], int size) {
+    int sum1 = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] > 0) {
+            sum1 += arr[i];
+        }
+    }
+    return sum1;
+}
+
+int negativenumber(int arr[], int size) {
+    int sum2 = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] < 0) {
+            sum2 += arr[i];
+        }
+    }
+    return sum2;
+}
+
+int zeronumber(int arr[], int size) {
+    int sum3 = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == 0) {
+            sum3 += 1; 
+        }
+    }
+    return sum3;
+}
+
+double average(int arr[], int size, int s1, int s2, int s3) {
+    
+    double avg = (s1 + s2 + s3) / (double)size; 
+    return avg;
+}
+
+void displayAll(int s1, int s2, int s3, double avg) {
+    cout << "sum of positive numbers is " << s1 << endl;
+    cout << "sum of negative numbers is " << s2 << endl;
+    cout << "count of zeros is " << s3 << endl;
+    cout << "average is " << avg << endl;
+}
+
+int main() {
+    int arr[5]; 
+    
+    cout << "Enter 5 numbers:" << endl;
+    for (int i = 0; i < 5; i++) {
+        cin >> arr[i];
+    }
+
+    int sum1 = positivenumber(arr, 5);
+    int sum2 = negativenumber(arr, 5);
+    int sum3 = zeronumber(arr, 5);
+    
+    double avg = average(arr, 5, sum1, sum2, sum3);
+    displayAll(sum1, sum2, sum3, avg);
+
+    return 0;
+}
